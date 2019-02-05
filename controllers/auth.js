@@ -84,7 +84,7 @@ const loginAuth = (req, res, next)=>{
 
                     req.session.save(err=>{
                         console.log(err);
-                        res.redirect('/');
+                        res.redirect('/home');
                     });
                     });
                     
