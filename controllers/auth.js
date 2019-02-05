@@ -81,6 +81,7 @@ const loginAuth = (req, res, next)=>{
                         req.session.Auth = true;
                     req.session.user = data;
                     req.session.lastLogIn = Date.now();
+                    
 
                     req.session.save(err=>{
                         console.log(err);
