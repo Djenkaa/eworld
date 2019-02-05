@@ -12,7 +12,6 @@ var indexRouter = require('./routes/admin');
 var usersRouter = require('./routes/users');
 var messageRouter = require('./routes/messages');
 const flash = require('connect-flash');
-const time = require('./function/time');
 const moment = require('moment');
 const helmet = require('helmet');
 const compression = require('compression');
@@ -52,7 +51,6 @@ app.use((req, res, next)=>{
   res.locals.status = req.session.status;
   res.locals.current = req.session.user;
   res.locals.csrfToken = req.csrfToken();
-  res.locals.time = time();
   next();
 });
 

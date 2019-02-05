@@ -8,7 +8,7 @@ var {
     test
 } = require('../models/test');
 const moment = require('moment');
-const time = require('../function/time');
+
 
 // GET HOME PAGE
 var getHome = function (req, res, next) {
