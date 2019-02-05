@@ -90,7 +90,7 @@ const loginAuth = (req, res, next)=>{
                     
                 }else{
                     req.flash('registerError','Incorrect password');
-                    res.redirect('/login');
+                    res.redirect('/');
                 }
             });
             

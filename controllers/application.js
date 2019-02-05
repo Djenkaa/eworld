@@ -43,7 +43,7 @@ const postMessage = (req, res, next) => {
 
     newMessage.save().then(doc => {
 
-        res.redirect('/');
+        res.redirect('/home');
     }, err => {
         console.log('poruka nije poslata ');
     });
