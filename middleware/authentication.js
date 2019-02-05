@@ -7,7 +7,7 @@ const {user} = require('../models/user');
 // PROTECT ROUTES IF USER !AUTH
 const protect = (req, res, next)=>{
     if(!req.session.Auth){
-        res.redirect('/login');
+        res.redirect('/');
     }
     next();
 }
