@@ -58,7 +58,7 @@ const logout = (req, res, next) => {
        
            
             req.session.destroy(err => {
-               res.redirect('/login');
+               res.redirect('/');
             });
        
     });
