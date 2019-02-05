@@ -18,7 +18,7 @@ var getHome = function (req, res, next) {
         }).populate('from').then(doc => {
     
             res.render('shop/index', {
-                path: '/',
+                path: '/home',
                 message: doc,
                 user:el
     

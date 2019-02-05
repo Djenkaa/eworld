@@ -17,7 +17,7 @@ const logIn = (req, res, next)=>{
     res.render('auth/login',{
         error:req.flash('registerError')[0],
         success:req.flash('registerSuccess')[0],
-        path:'/login'
+        path:'/'
     });
 }
 // REGISTER USER

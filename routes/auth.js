@@ -3,7 +3,7 @@ var router = express.Router();
 const auth = require('../controllers/auth');
 
 // GET login page
-router.get('/login', auth.logIn);
+router.get('/', auth.logIn);
 //POST register
 router.post('/register', auth.register);
 //POST login

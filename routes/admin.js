@@ -7,7 +7,7 @@ const {vreme} = require('../middleware/authentication');
  
 
 /* GET home page. */
-router.get('/',protect, controll.getHome);
+router.get('/home',protect, controll.getHome);
 
 // POST chat message
 router.post('/chat-message', controll.postMessage);
