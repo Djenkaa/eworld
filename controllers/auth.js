@@ -72,7 +72,7 @@ const loginAuth = (req, res, next)=>{
         if(!doc){
            
             req.flash('registerError', 'There is not a such user in database');
-             res.redirect('/login');
+             res.redirect('/');
         }else{
             bcrypt.compare(password, doc.password).then(el=>{
                 if(el){
