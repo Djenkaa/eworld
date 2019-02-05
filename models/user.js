@@ -17,7 +17,7 @@ var userSchema = new mongoose.Schema({
     },
     img: {
         type: String,
-        required: true
+        default:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/220px-User_icon_2.svg.png'
     },
     skills: {
         gold: {
