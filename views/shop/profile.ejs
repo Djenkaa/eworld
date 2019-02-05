@@ -1,0 +1,99 @@
+<%- include('../includes/head.ejs') %>
+<%- include('../includes/navigation.ejs') %>
+<link rel="stylesheet" href="/css/train.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="row">
+        <%- include('../includes/sidebar.ejs') %>
+      <div class="col-sm-6 col-md-5">
+        
+        <div class="card">
+          <% if(status == 'online') { %>
+          <p><img src="../../images/online.png" style="width:20px; height:20px"> <span style="color:green;">Online</span></p>
+          <% }else{ %>
+          <p><img src="../../images/offline.png" style="width:20px; height:20px"> <span style="color:red;">Offline</span></p>
+          <% } %>
+          <div>
+              <img class="card-img-top" src="<%= users.img%>" alt="Card image cap" style="width:200px; height:200px; transform:translateX(50%)">
+          </div>
+          
+          <div class="card-body">
+            <h5 class="card-title">
+              <% if(users.isAdmin) {%><img style="width:25px;height:25px" src="http://www.pngpix.com/wp-content/uploads/2016/10/PNGPIX-COM-Gold-Star-PNG-Transparent-Image-500x500.png"
+            alt="admin" title="Admin">
+          <% } %>
+          <%= users.username %>
+            </h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                <i class="fas fa-envelope"></i> Send Message
+            </button>
+
+
+            <p><i class="fas fa-star"></i> level
+              <%= users.skills.level.lvl %>
+            </p>
+           
+            <p> <%= users.skills.level.experience + ' / ' +  users.skills.level.nextLevel %></p>
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar"
+                aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" 
+                style="width: <%= bar + '%' %>"
+                ></div>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+
+
+
+
+
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            <%= users.username%>
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="/message" method="POST">
+          <div class="modal-body">
+            <div class="form-group">
+
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <div id="messageAlert" class="alert alert-success alert-dismissible fade show" role="alert" style="display:none">
+              <strong>Success!</strong> Message sent successfully.
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <input type="hidden" name="id" value="<%= users._id %>">
+            <button id="sendMessage" type="button" class="btn btn-primary">Send</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <%- include('../includes/footer.ejs') %>
+  <%- include('../includes/end.ejs') %>

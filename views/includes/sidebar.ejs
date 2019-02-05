@@ -1,0 +1,37 @@
+
+
+
+
+
+<div id="profileSide" class="col-lg-2" style="height:772px;">
+    <div id="profilePart">
+      <img src="<%= current.img%>" alt="avatar">
+      <span> <a href="/profile/<%= current._id %>">
+          <% if(user.isAdmin) {%><img style="width:20px;height:20px" src="http://www.pngpix.com/wp-content/uploads/2016/10/PNGPIX-COM-Gold-Star-PNG-Transparent-Image-500x500.png"
+            alt="admin" title="Admin">
+          <% } %>
+          <%= user.username %>
+        </a>
+      </span>
+    </div>
+    <div id="moneyAndEnergy">
+      <p><i class="fas fa-dollar-sign"></i> Gold:
+        <%= user.skills.gold%>
+      </p>
+      <p><i class="fas fa-battery-full"></i> Energy:
+        <%= user.skills.energy%>
+      </p>
+      <p><i class="fas fa-star"></i> Level:
+        <%= user.skills.level.lvl%>
+      </p>
+      <p><i class="fas fa-dumbbell"></i> Strength:
+        <%= user.skills.strength.value%>
+      </p>
+
+    </div>
+
+
+  </div>
+
+
+ 

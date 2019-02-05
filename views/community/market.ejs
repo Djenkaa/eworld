@@ -1,0 +1,64 @@
+<%- include('../includes/head.ejs') %>
+<%- include('../includes/navigation.ejs',{user:users}) %>
+
+</head>
+
+<body>
+    <div class="container">
+            
+        <div class="row" >
+                <%- include('../includes/sidebar.ejs',{user:users}) %>
+            <div class="col-lg-8 offset-lg-1" style="background: white;">
+                    <% if(error.length > 0){ %>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                          <strong>Error!</strong> <%= error[0] %>
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <% } %>
+                    <% if(success.length > 0){ %>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                          <strong>Success!</strong> <%= success[0] %>
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <% } %>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Item</th>
+                            <th scope="col">Attribute</th>
+                            <th scope="col">Buy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i = 0; i<item.length; i++){ %>
+                        <tr>
+                            <th scope="row"><%= i+1 %></th>
+                            <td><img src="<%= item[i].img%>" style="width:50px;height:50px;">
+                                 <%= item[i].name %></td>
+                            <td><%= item[i].attribute %></td>
+                            <td>
+                                <form method="POST" action="/market">
+                                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                    <input type="hidden" name="id" value="<%=item[i]._id%>">
+                                    <button type="submit" class="btn btn-success"
+                                    <% if(user < item[i].price){ %>
+                                        <%= 'disabled' %>
+                                        <% } %>
+                                    >Buy for <%= item[i].price%> <i class="fas fa-dollar-sign"></i></button>
+                                </form>
+                               </td>
+                        </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    <%- include('../includes/footer.ejs') %>
+    <%- include('../includes/end.ejs') %>

@@ -1,0 +1,53 @@
+*{
+    box-sizing: border-box;
+}
+
+#mainPart{
+    background-image: url('/images/train.jpg');
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+    background-position: center;
+    background-size: cover;
+    height: 300px;
+    position: relative;
+}
+img[alt="bench"]{
+    height: 150px;
+    width: 150px;
+   margin-top:150px;
+   margin-left: 30px;
+   transform: translateY(-50%);
+   
+}
+
+#workout{
+    position: absolute;
+  top: 50%;
+  left: 80%;
+  color: white;
+  border-color: white;
+  
+}
+#nextTrain{
+    position: absolute;
+    top: 50%;
+    left: 80%;
+    color: white;
+  
+}
+#time{
+    font-weight: bold;
+    font-size: 30px;
+}
+#strengthPoint{
+  position: absolute;
+  bottom: 25%;
+  left: 21%;
+  color: white;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+/* #trainWrapp{
+    height: 200px;
+} */

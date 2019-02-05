@@ -1,0 +1,15 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  background-image: url('https://w-dog.net/wallpapers/7/9/437992114744844.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+  
+.navbar {
+  padding: 0 1rem;
+}

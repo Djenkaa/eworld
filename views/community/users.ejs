@@ -1,0 +1,37 @@
+<%- include('../includes/head.ejs') %>
+<%- include('../includes/navigation.ejs') %>
+<link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="row" >
+            <%- include('../includes/sidebar.ejs') %>
+        <div class="col-lg-6 offset-lg-2">
+            <table class="table table-light">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Username</th>
+                <th scope="col">Level</th>
+                <th scope="col">Rank</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% for(var i = 0; i<users.length; i++){ %>
+            <tr>
+                <th scope="row"><%= i+1 %></th>
+                <td><img src="<%= users[i].img%>" style="height:40px;width:40px"> <a href="/profile/<%= users[i]._id %>"><%=users[i].username %></a></td>
+                <td style="line-height:40px;"><%=users[i].skills.level.lvl %></td>
+                <td style="line-height:40px;"><%= users[i].isAdmin == true ? 'Admin' : 'User' %></td>
+            </tr>
+            <% } %>
+            </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+<%- include('../includes/footer.ejs') %>
+<%- include('../includes/end.ejs') %>

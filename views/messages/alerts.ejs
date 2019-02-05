@@ -1,0 +1,29 @@
+<%- include('../includes/head.ejs') %>
+<%- include('../includes/navigation.ejs') %>
+<link rel="stylesheet" href="/css/alerts.css">
+
+</head>
+
+<body>
+<div class="container">
+    <div class="row" >
+            <%- include('../includes/sidebar.ejs') %>
+        <div id="alertBox" class="col-lg-10" style="background:white">
+            <p id="alertTitle">My Alert 
+                <form action="/delete-alert" method="POST" style="margin-bottom:20px;">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">   
+                    <button class="btn btn-danger">Delete All</button>
+                </form>
+               
+            </p>
+            <ul id="alert">
+                <% for(var i = 0; i<user.alert.alerts.length; i++) { %>
+                <li><i class="fas fa-bell"></i> <%= user.alert.alerts[i].alertMessage %></li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<%- include('../includes/footer.ejs') %>
+<%- include('../includes/end.ejs') %>    

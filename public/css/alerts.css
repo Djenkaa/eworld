@@ -1,0 +1,19 @@
+*{
+    box-sizing: border-box;
+}
+#alertBox{
+    padding: 15px;
+    border-radius: 10px;
+}
+#alert li {
+    list-style: none;
+    color: #9E5A00;
+    height: 400px;
+    overflow-y: scroll;
+   
+
+}
+#alertTitle{
+    font-weight: bold;
+    font-size: 20px;
+}

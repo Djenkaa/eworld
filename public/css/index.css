@@ -1,0 +1,62 @@
+*{
+    box-sizing: border-box;
+    
+}
+#profileSide{
+    background:#343a40;
+    padding: 8px;
+    color: rgba(255,255,255,.5);
+
+}
+#appSide{
+    padding: 15px;
+    background: white;
+    
+}
+
+#profileSide img[alt="avatar"]{
+    border-radius: 8px;
+    width: 70px;
+    height: 70px;
+}
+
+#moneyAndEnergy{
+    margin-top: 20px;
+}
+#moneyAndEnergy p{
+    margin: 0;
+    padding: 3px;
+    border: 1px solid white;
+    margin-top: 8px;
+    border-radius: 8px;
+}
+#chat{
+    margin: 0px;
+    padding: 0px;
+    height: 600px;
+   overflow-y: scroll;
+}
+#chatMessage{
+    list-style: none;
+    margin: 0;
+    overflow: hidden;
+    
+}
+#chatMessage img[alt="messageAvatar"]{
+    float: left;
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+}
+
+.card-body{
+    padding: 10px;
+}
+
+#mainSideLeft img[alt="news"]{
+    width: 100%;
+}
+img[alt="admin"]{
+  margin-bottom: 5px;
+  margin-right: -3px;
+}

@@ -1,0 +1,67 @@
+<%- include('../includes/head.ejs') %>
+<%- include('../includes/navigation.ejs',{user:user}) %>
+<link rel="stylesheet" href="/css/train.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="row" id="train">
+            <%- include('../includes/sidebar.ejs',{user:user}) %>
+            <div class="col-lg-10" id="trainWrapp">
+                    <% if(success.length > 0){ %>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>Success!</strong>
+                            <%= success[0] %>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <% } %>
+                        <% if(error.length > 0){ %>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>Error!</strong>
+                            <%= error[0] %>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <% } %>
+
+                <div id="mainPart">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                    <img src="/images/biceps.png" alt="bench">
+                    <p id="strengthPoint"><%= user.skills.strength.value %></p>
+                    <form action="/train-workout" method="POST">
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                        <% if(user.skills.strength.isTrain == 'not'){ %>
+                        <button id="workout" type="submit" class="btn btn-outline-secondary btn-lg">Train</button>
+                        <% }else{ %>
+                        <p id="nextTrain">The next training will be available for:
+                            <% var nextT =user.skills.strength.nextTrain%>
+
+                            <% var sledeciTrening = nextT - Date.now() %>
+                            <%var d = Math.floor(sledeciTrening / (1000 * 60 * 60 * 24))%>
+                            <%var h = Math.floor((sledeciTrening % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))%>
+                            <%var m = Math.floor((sledeciTrening % (1000 * 60 * 60)) / (1000 * 60))%>
+                            <% var clock = h + ':' + m + 'h' %>
+                            <span id="time"><%= clock %></span>
+
+                        </p>
+                        <%  }%>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <%- include('../includes/footer.ejs') %>
+    <%- include('../includes/end.ejs') %>

@@ -1,0 +1,79 @@
+<%- include('../includes/head.ejs') %>
+<%- include('../includes/navigation.ejs') %>
+<link rel="stylesheet" href="/css/battle.css">
+
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="row">
+            <%- include('../includes/sidebar.ejs') %>
+
+            <div class="col-lg-10">
+                <% if(error.length > 0){ %>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Error!</strong>
+                    <%= error[0] %>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <% } %>
+                <% if(success.length > 0){ %>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Success!</strong>
+                    <%= success[0] %>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <% } %>
+                <div class="row" style="background:white;">
+                    <% for(var i =0; i<users.length; i++){ %>
+                    <div class="col-lg-2">
+
+                        <div class="card text-center">
+                            <p><img class="card-img-top" src="<%=users[i].item.img %>" alt="Card image cap" style="width:75px;height:75px;"></p>
+                            <div class="card-body">
+                                <h5 class="card-title">x
+                                    <%=users[i].quantity%>
+                                    <%= users[i].item.name %>
+                                </h5>
+                                <p class="card-text">
+                                    <%= users[i].item.attribute %>
+                                </p>
+                                <form action="/battle" method="POST">
+                                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                    <input type="hidden" name="id" value="<%=users[i]._id%>">
+                                    <input type="hidden" name="index" value="<%=[i]%>">
+                                    <button type="submit" class="btn btn-primary">Use</button>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+                </div>
+
+                <div class="container">
+                        <div  class="row" style="margin-top:30px;background:white;">
+                            <div id="battle" class="col-lg-12 text-center">
+                                <p id="displayDmg">
+                                    <%= user.battle.score%> <span style="font-weight:normal;">Dmg</span>
+                                </p>
+                                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                <button id="fight" class="btn btn-danger btn-lg">Fight</button>
+                
+                            </div>
+                        </div>
+                    </div>
+            </div>
+           
+        </div>
+    </div>
+
+   
+
+    <%- include('../includes/footer.ejs') %>
+    <%- include('../includes/end.ejs') %>

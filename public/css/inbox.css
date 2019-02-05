@@ -1,0 +1,16 @@
+*{
+    box-sizing: border-box;
+}
+
+#messageBox {
+    padding: 15px;
+    border-radius: 10px;
+}
+.messageWrapp{
+    height: 400px;
+   overflow-y: scroll;
+}
+#messageTtile{
+    font-weight: bold;
+    font-size: 20px;
+}
