@@ -53,7 +53,7 @@ const register = (req, res, next)=>{
                     });
                     console.log(`korisnik upisan kao ${doc}`);
                     req.flash('registerSuccess', 'You have successfully registered');
-                    res.redirect('/login');
+                    res.redirect('/');
                 }); 
             });
             
