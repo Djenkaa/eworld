@@ -30,7 +30,7 @@ const register = (req, res, next)=>{
         if(el){
             req.flash('registerError', 'This email is already in use');
             
-            res.redirect('/login');
+            res.redirect('/');
         }else{
             bcrypt.hash(password, 12).then(pass=>{
                 var mailOptions = {
