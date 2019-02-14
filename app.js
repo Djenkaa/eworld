@@ -37,9 +37,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({secret:'my secret', resave:true, saveUninitialized:false, rolling:true, store:store,
 cookie:{
-    expires: 1000*60*8
-    
-    
+    maxAge:1000*60*8   
 }
 }));
 app.use(csrfPro);
